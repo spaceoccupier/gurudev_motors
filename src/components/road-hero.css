@@ -25,7 +25,7 @@
 @keyframes road-drive-in { from { transform: translateX(-100%); } to { transform: translateX(0); } }
 @keyframes road-drive-out { from { transform: translateX(0); } to { transform: translateX(100%); } }
 .road-image-fallback { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 240px; height: 170px; color: #071b38; background: #edf6f9; border-radius: 8px; }
-.road-facts { position: absolute; top: 145px; right: max(24px, calc(50% - 410px)); z-index: 1; width: 120px; margin: 0; padding: 12px 10px; display: grid; gap: 10px; background: #edf6f9ed; border-radius: 4px; }
+.road-facts { position: absolute; top: 145px; right: max(24px, calc(50% - 410px)); z-index: 1; width: 120px; margin: 0; padding: 12px 10px; display: grid; gap: 10px; background: transparent; text-shadow: 0 1px 2px #eaf6fc, 0 0 5px #eaf6fc; }
 .road-facts > div { border-left: 1px solid #7eacbd; padding-left: 14px; }
 .road-facts dt { font-size: 11px; color: #234561; }
 .road-facts dd { margin: 3px 0 0; font-size: 14px; font-weight: 700; }
@@ -65,7 +65,7 @@
   .road-backdrop img { object-fit: cover; }
   .road-moving-vehicle { padding-bottom: 30px; }
   .road-vehicle-image { max-width: 400px; max-height: 245px; }
-  .road-facts { grid-area: facts; position: relative; inset: auto; width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding: 9px 20px; background: #edf6f9; border-bottom: 1px solid #ccdde5; border-radius: 0; }
+  .road-facts { grid-area: facts; position: relative; inset: auto; width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding: 9px 20px; background: #edf6f9; border-bottom: 1px solid #ccdde5; border-radius: 0; text-shadow: none; }
   .road-facts > div { text-align: center; padding: 0 8px; }
   .road-facts > div:first-child { border: 0; }
   .road-controls { max-width: 690px; grid-template-columns: minmax(0, 1fr); gap: 6px; }
@@ -85,12 +85,12 @@
 @media (max-width: 600px) {
   .road-backdrop { grid-column: 1 / -1; grid-row: heading-start / stage-end; }
   .road-backdrop img { object-fit: fill; }
-  .road-heading { padding-top: 8px; }
+  .road-heading { display: flex; flex-direction: column; align-items: center; gap: 2px; padding-top: 8px; }
   .road-heading .eyebrow { font-size: 9px; }
-  .public-site .road-heading h1 { font-size: 29px; margin-top: 4px; }
-  .road-heading p { font-size: 12px; margin-top: 3px; }
-  .road-model { width: calc(100% - 32px); min-height: 49px; margin: 8px auto 4px; }
-  .road-brand { font-size: 11px; }
+  .public-site .road-heading h1 { font-size: 29px; margin-top: 0; }
+  .road-heading p { font-size: 12px; margin-top: 0; }
+  .road-model { width: calc(100% - 32px); min-height: 49px; margin: 0 auto 64px; align-items: flex-start; }
+  .road-brand { display: block; font-size: 11px; line-height: 1.4; }
   .public-site .road-model h2 { font-size: 21px; margin-top: 1px; }
   .road-price strong { font-size: 20px; }
   .road-price span { font-size: 10px; }

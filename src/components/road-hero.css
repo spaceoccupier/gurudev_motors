@@ -1,5 +1,6 @@
 .road-hero { overflow: clip; background: #fff; border-bottom: 1px solid #ccd6dd; color: #071b38; }
-.road-scene { position: relative; height: 480px; background: #d7eff8; }
+/* Match the panorama so wider desktop screens do not crop the clock-tower dome. */
+.road-scene { position: relative; height: auto; aspect-ratio: 3 / 1; background: #d7eff8; }
 .road-backdrop { position: absolute; inset: 0; pointer-events: none; }
 .road-backdrop img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
 .road-heading { position: relative; z-index: 1; padding-top: 22px; text-align: center; }
@@ -45,15 +46,17 @@
 .road-scene-unavailable { background: #d7eff8; }
 .road-scene-unavailable::after { content: ''; position: absolute; bottom: 0; height: 20%; width: 100%; background: #b4bec5; pointer-events: none; }
 .road-scene-unavailable .road-stage { z-index: 1; }
+@media (min-width: 1440px) {
+  .road-controls { padding-top: 8px; padding-bottom: 8px; row-gap: 8px; }
+}
 @media (min-width: 1101px) and (max-width: 1439px) {
-  .road-scene { height: calc(100vw / 3); }
   .road-model { left: calc(50% - 330px); top: 126px; }
   .road-facts { right: calc(50% - 330px); top: 128px; }
   .road-stage { height: 250px; }
   .road-vehicle-image { max-width: 420px; max-height: 220px; }
 }
 @media (max-width: 1100px) {
-  .road-scene { height: auto; display: grid; grid-template-areas: 'heading' 'model' 'stage' 'facts'; }
+  .road-scene { height: auto; aspect-ratio: auto; display: grid; grid-template-areas: 'heading' 'model' 'stage' 'facts'; }
   .road-heading { grid-area: heading; padding-top: 16px; }
   .road-model { grid-area: model; position: relative; top: auto; left: auto; width: calc(100% - 40px); max-width: 650px; min-height: 58px; margin: 15px auto 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
   .road-price { text-align: right; margin: 0; }

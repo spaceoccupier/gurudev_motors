@@ -83,6 +83,8 @@
   .road-quick-actions { margin-top: 0; }
 }
 @media (max-width: 600px) {
+  .road-backdrop { grid-column: 1 / -1; grid-row: heading-start / stage-end; }
+  .road-backdrop img { object-fit: fill; }
   .road-heading { padding-top: 8px; }
   .road-heading .eyebrow { font-size: 9px; }
   .public-site .road-heading h1 { font-size: 29px; margin-top: 4px; }

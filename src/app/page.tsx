@@ -31,6 +31,7 @@ import VehicleCard from '@/components/VehicleCard';
 import InventoryState from '@/components/InventoryState';
 import TestDriveModal from '@/components/TestDriveModal';
 import RotatingHero from '@/components/RotatingHero';
+import RoadHero from '@/components/RoadHero';
 import ShowroomPhotos from '@/components/ShowroomPhotos';
 
 const brandLogos: Record<string, { src: string; width: number; height: number }> = {
@@ -80,9 +81,11 @@ export default function HomePage() {
   const [category, setCategory] = useState('ALL');
   const [testVehicle, setTestVehicle] = useState<ShowroomVehicle | null>(null);
   const [classicHero, setClassicHero] = useState(false);
+  const [ovalHero, setOvalHero] = useState(false);
   const showHeroTrial = IS_DESIGN_PREVIEW && !classicHero;
   useEffect(() => {
     setClassicHero(new URLSearchParams(window.location.search).get('hero') === 'classic');
+    setOvalHero(new URLSearchParams(window.location.search).get('hero') === 'oval');
   }, []);
   useEffect(() => {
     const abort = new AbortController();
@@ -115,7 +118,7 @@ export default function HomePage() {
   };
   return (
     <>
-      {showHeroTrial && <RotatingHero vehicles={vehicles} />}
+      {showHeroTrial && (ovalHero ? <RotatingHero vehicles={vehicles} /> : <RoadHero vehicles={vehicles} />)}
       <section className={'showroom-intro' + (showHeroTrial ? ' hero-browse-tools' : '')}>
         <div className="site-container">
           {!showHeroTrial && <div className="intro-top">
